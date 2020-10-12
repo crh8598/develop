@@ -9,3 +9,5 @@ def home(request):
 def view(request):
     data = {"First":request.GET['first'],'Second':request.GET['second']}    
     return render(request,'hello/view.html/',context=data)
+def temp(request):
+    return render(request,"hello/template.html")
