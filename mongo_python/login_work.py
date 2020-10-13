@@ -6,15 +6,6 @@ import schedule,time
 import pymongo
 
 
-def search_keywork(url,keyword):
-
-    search_box = driver.find_element_by_css_selector("#topQuery")
-    search_form = driver.find_element_by_css_selector("#searchFrm > div.header-search > div.searc-area > button")
-
-    search_box.send_keys(keyword)
-    search_form.click()
-    return 0
-
 def login(id_1,password):
     click = driver.find_element_by_css_selector('#header > div.top-area > div > div.util > a:nth-child(1)')
     click.click()
