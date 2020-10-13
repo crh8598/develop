@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <table class='w3-table' style="border-style: solid; ">
+        <tr style="font-size: xx-large; color: chocolate;">
+            <th style='width: 8%;'> Title </th> <th style='width: 5%;'>Grade</th> <th style="text-align: center;">Content</th>
+        </tr>
+        {% for row in page_obj.0 %}
+        <tr>           
+            <th>
+                {{row.name}}
+            </th>
+            <th style="text-align: center;">
+
+                {{row.grade}}
+            </th>
+            <th style='text-align: left;'>
+                {% if row.content|truncatechars:1 == '0' %}
+                    {{row.content|slice:"1:"}}
+                {% endif %}
+                {{row.content}}
+            </th>                   
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
