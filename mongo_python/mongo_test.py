@@ -15,7 +15,8 @@ import schedule
 
 '''
 def read_movie_review():
-    with  MongoClient("mongodb://172.17.0.3:27017") as my_client:
+    #with  MongoClient("mongodb://172.17.0.3:27017") as my_client: #for linux
+    with  MongoClient("mongodb://127.0.0.1:27017") as my_client: #for goorm_io
         my_db = my_client['my_db']
 
         url =  'https://movie.naver.com/movie/point/af/list.nhn?&page='
@@ -40,14 +41,12 @@ def read_movie_review():
 
                 num = (body.find('a',{'class':'author'}))   
                 date = num.nextSibling.nextSibling
-    
-               
                 my_db.movie_review.insert_one({"name":name,"grade":grade,"date":date,"page":i,"content":content})
 
         now = datetime.datetime.now()
         print(now)
 
-schedule.every(6).hours.do(read_movie_review)
+schedule.every(10).seconds.do(read_movie_review)
 
 while True:
     schedule.run_pending()
