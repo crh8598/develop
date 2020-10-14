@@ -66,5 +66,5 @@ https://www.work.go.kr/indivMemberSrv/custmadeInfoMng/custmadeInfoList.do
 
 <br><br>
 
-    web_config/job_list/views.py 에서 126번 라인의 'seqNo' 의 값을 변경하여 채용정보를 선택가능
-   
+    web_config/job_list/views.py 에서 126번 라인의 'seqNo' 의 값을 변경하여 채용정보를 선택가능합니다.
+    현재는 2번으로 되어있습니다.
