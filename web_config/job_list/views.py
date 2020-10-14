@@ -107,12 +107,12 @@ def collectJobInfo(d_path,id_1,pw_1):
         my_client.my_db.job_info.drop()
      
         # for goorm.io setting selenium 
-        options = Options()
-        options.add_argument("--headless")
-        options.add_argument("--no-sandbox")
+        # options = Options()
+        # options.add_argument("--headless")
+        # options.add_argument("--no-sandbox")
 
-        driver = webdriver.Chrome(options=options)          # for goorm.io 
-        #driver = webdriver.Chrome(executable_path=d_path) # for linux 
+        # driver = webdriver.Chrome(options=options)          # for goorm.io 
+        driver = webdriver.Chrome(executable_path=d_path) # for linux 
 
         driver.implicitly_wait(3) # 암묵적으로 웹 자원을 (최대) 3초 기다리기
         driver.get(url=url)
