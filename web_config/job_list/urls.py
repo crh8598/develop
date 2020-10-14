@@ -19,5 +19,8 @@ from . import views
 
 urlpatterns = [
   
-    path('list/',views.job_list, name='list')
+    path('list/',views.job_list, name='list'),
+    path('login/',views.login_page, name='login'),
+    path('get/',views.get_job, name='get_job')
+    
 ]

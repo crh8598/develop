@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>My job info list</title>
+</head>
+<body>
+    
+    <h1>
+        Loggin for read job list!
+    </h1>
+
+    <form action="job/get" method="get">
+        {%csrf_token%}
+        <span> ID : </span>
+        <input type="text" id="id">
+        <span> password : </span>
+        <input type="password" id="pw">
+        <input type="submit" id='btn' value="제출">
+    </form>
+    
+    
+</body>
+</html>
+
+<script>
+
+var btn = document.getElementById('btn'); 
+var id = document.getElementById('id');       // 아이디
+var pw = document.getElementById('pw');       // 비밀번호
+
+function send_data()
+{
+  if (document.getElementById('id').value == '' | document.getElementById('pw').value == '' ) // ID 항목이 공백일경우
+  {
+    alert('아이디와 password를 채우세요');      // 경고메세지 출력
+    document.getElementById('id').focus();    // 텍스트 페이지로 포커싱하여 텍스트 입력이 가능하도록 
+    return false;                             //  함수 종료
+  }
+  else 
+  {
+    $.ajax({  
+    type: "POST",
+    url:'http://127.0.0.1:8000/job/get/',      //board의 save에 해당하는 함수를 실행시킴으로 써 PC에 사진데이터를 저장
+    data: {'id':id.value,'pw':pw.value, }      
+  }).done(function(msg){ 
+    console.log(msg); 
+  });
+  }
+}
+
+</script>

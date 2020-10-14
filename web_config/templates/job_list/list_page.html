@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>My job info list</title>
+</head>
+<body>
+    <table class="w3-table" style="border-style: solid; ">
+        <tr style="font-size: xx-large; color: chocolate;">
+            <th>Title</th> 
+            <th>Company</th> 
+            <th>Conditions</th>
+            <th>Pay</th>
+            <th>Work</th>
+        </tr>
+         {% for data in lists %}
+        <tr>           
+            <th>{{data.title}}</th>
+            <th>{{data.company}}</th>            
+            <th>{{data.conditions}}</th>            
+            <th>{{data.pay}}</th>            
+            <th>{{data.work}}</th>          
+        </tr>
+         {% endfor %}
+
+    </table>
+    
+</body>
+</html>
