@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 
+# app_name 을 추가하여 url 을 읽어 올 수 있도록 하자 - templates/login_listing.html 참조 
+app_name = 'job_list'
+
 urlpatterns = [
   
     path('list/',views.job_list, name='list'),
     path('login/',views.login_page, name='login'),
-    path('get/',views.get_job, name='get_job')
+
     
 ]

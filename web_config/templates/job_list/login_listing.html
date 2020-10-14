@@ -13,14 +13,16 @@
         Loggin for read job list!
     </h1>
 
-    <form action="job/get" method="get">
+    <!-- app_name = job_list 로 등록 해놓았으므로 아래의 url 사용이 가능해짐.-->
+    <form action="{% url 'job_list:list' %}" method="POST">
         {%csrf_token%}
         <span> ID : </span>
-        <input type="text" id="id">
+        <input type="text" name="id" id="id">
         <span> password : </span>
-        <input type="password" id="pw">
-        <input type="submit" id='btn' value="제출">
+        <input type="password" name="pw" id="pw">
+        <input type="submit" value="제출">
     </form>
+    <!--<button type="button" onclick="send_data()">제출</button>-->
     
     
 </body>

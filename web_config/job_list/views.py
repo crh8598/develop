@@ -8,6 +8,8 @@ import schedule,time
 from pymongo import MongoClient
 from django.views.decorators.csrf import csrf_exempt
 
+#for goorm.io
+from selenium.webdriver.chrome.options import Options
 
 d_path = '/home/cho/Documents/Develop/web_config/driver/chromedriver_linux'
 # Create your views here.
@@ -16,18 +18,12 @@ d_path = '/home/cho/Documents/Develop/web_config/driver/chromedriver_linux'
 def login_page(request):
     return render(request,'job_list/login_listing.html')
 
-
 @csrf_exempt
-def get_job(request):
+def job_list(request):    
     if (request.method == 'POST'):
         id = request.POST.get('id')
         pw = request.POST.get('pw')
         collectJobInfo(d_path,id,pw)
-    # return HttpResponseRedirect("job_list/list_page.html")
-    return redirect('list')
-
-
-def job_list(request):    
     with  MongoClient("mongodb://172.17.0.3:27017") as my_client:
         data = dict()
         job_info = my_client.my_db.job_info.find({},{"_id":0})
@@ -37,6 +33,7 @@ def job_list(request):
         else :
             return HttpResponse("<h1> 로그인을 하신 후 먼저 데이터를 채워주세요! <h1>")
        
+
 
 
 
@@ -108,8 +105,15 @@ def collectJobInfo(d_path,id_1,pw_1):
     #with  MongoClient("mongodb://127.0.0.1:27017") as my_client: #for goorm_io
         url = 'https://www.work.go.kr/seekWantedMain.do'
         my_client.my_db.job_info.drop()
-        # Create your views here.
-        driver = webdriver.Chrome(executable_path=d_path)
+     
+        # for goorm.io setting selenium 
+        options = Options()
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+
+        driver = webdriver.Chrome(options=options)          # for goorm.io 
+        #driver = webdriver.Chrome(executable_path=d_path) # for linux 
+
         driver.implicitly_wait(3) # 암묵적으로 웹 자원을 (최대) 3초 기다리기
         driver.get(url=url)
 
