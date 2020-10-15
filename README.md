@@ -5,10 +5,13 @@
 
 **작성자 - 조 국 현**
 
+<<<<<<< HEAD
 *   제어로봇 공학과 졸업 
 *   일반대학원 석사과정 졸업
 *   2014 ~ 2019 드론 관련 개발 경험 
 
+=======
+>>>>>>> 57867516f13661fef367f455b21a0a535a832e02
 <br><br>
 
 ----
@@ -88,7 +91,3 @@ https://www.work.go.kr/indivMemberSrv/custmadeInfoMng/custmadeInfoList.do
 
     worknet의 로그인 정보를 입력하고 제출버튼을 누르면 Worknet 에 등록된 맞춤정보에 따라 검색이 시작되며,
     데이터는 셀레니움을 통해 읽은 후 지정된 ip와 포트에 등록된 mongoDB에 데이터가 저장됩니다.
-
-
-    
-   
