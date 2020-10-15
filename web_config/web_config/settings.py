@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'hello.apps.HelloConfig',
+    'map.apps.MapConfig',
     'job_list.apps.JobListConfig',
     'django.contrib.admin',
     'django.contrib.auth',

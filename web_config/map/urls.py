@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from . import views
+
+# app_name 을 추가하여 url 을 읽어 올 수 있도록 하자 - templates/login_listing.html 참조 
+app_name = 'job_list'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('hello/', include('hello.urls')),
-    path('job/',include('job_list.urls')),
-    path('map/',include('map.urls'))
+  
+    path('map/',views.map, name='map'), 
 ]

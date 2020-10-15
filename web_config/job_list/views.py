@@ -7,6 +7,8 @@ from selenium.webdriver.common.by import By
 import schedule,time
 from pymongo import MongoClient
 from django.views.decorators.csrf import csrf_exempt
+# class for pagination 
+from django.core.paginator import Paginator
 
 #for goorm.io
 from selenium.webdriver.chrome.options import Options
@@ -26,13 +28,15 @@ def job_list(request):
         collectJobInfo(d_path,id,pw)
     with  MongoClient("mongodb://172.17.0.3:27017") as my_client:
         data = dict()
-        job_info = my_client.my_db.job_info.find({},{"_id":0})
-        data['lists'] = list(job_info)
-        if len( data['lists']) != 0 :           
-            return render(request,'job_list/list_page.html',context= data)
-        else :
-            return HttpResponse("<h1> 로그인을 하신 후 먼저 데이터를 채워주세요! <h1>")
-       
+        job_info = list(my_client.my_db.job_info.find({}))
+    paginator = Paginator(job_info,10)
+    page_number = request.GET.get('page',1)
+    data['page_obj'] = paginator.get_page(page_number)
+    if len( data['page_obj']) != 0 :           
+        return render(request,'job_list/list_page.html',context= data)
+    else :
+        return HttpResponse("<h1> 로그인을 하신 후 먼저 데이터를 채워주세요! <h1>")
+    
 
 
 
