@@ -66,6 +66,7 @@ def get_data(driver):
 
 def collectJobInfo():
     #with  MongoClient("mongodb://172.17.0.3:27017") as my_client: #for linux
+    print("start reading!")
     with  MongoClient("mongodb://127.0.0.1:27017") as my_client: #for goorm_io
         url = 'https://www.work.go.kr/seekWantedMain.do'
         d_path = '../web_config/driver/chromedriver_linux'
@@ -121,9 +122,12 @@ def collectJobInfo():
         time.sleep(2)
         driver.quit()
 
+schedule.every(24).hours.do(collectJobInfo)
 
 if __name__ == "__main__":
-    collectJobInfo()
+    schedule.run_pending()
+    time.sleep(1)
+    
 '''
 # 새창 접속
 last_tab = driver.window_handles[-1]

@@ -1,13 +1,13 @@
 ## Worknet 맞춤 취업정보 리스팅 프로젝트
 ##### goorm io 에서 mongo DB 와 django 를 기반으로한 프로젝트 입니다.
--------------
+<Br><br>
 <img src ='1395011779959.png'>  
 
 **작성자 - 조 국 현**
 
-*   군산대학교 제어로봇 공학과 졸업 
+*   제어로봇 공학과 졸업 
 *   일반대학원 석사과정 졸업
-*   2014 ~ 2019 드론 관련 경험 
+*   2014 ~ 2019 드론 관련 개발 경험 
 
 <br><br>
 
@@ -64,11 +64,31 @@ Worknet 에서 사전에 필요한 작업은 2가지 입니다.
     아래는 맞춤 채용관리 페이지의 url 과 사진입니다.
 
 <br>
-페이지 사진
+<br>
+<br>
+<br>
+
+- 페이지 사진과 링크 
 <img src="./pictures/채용정보.png">
 https://www.work.go.kr/indivMemberSrv/custmadeInfoMng/custmadeInfoList.do
 
-<br><br>
 
-    web_config/job_list/views.py 에서 126번 라인의 'seqNo' 의 값을 변경하여 채용정보를 선택가능
+<br>
+<br>
+
+    web_config/job_list/views.py 에서 126번 라인의 'seqNo' 의 값을 변경하여 채용정보를 선택가능합니다.
+    위 사진은 제 개인 페이지의 맞춤채용정보 화면이며, 1번은 '2020검색키워드', 2번은 '임베디드 1'을 의미합니다.
+    현재 프로젝트의 기본값은 2 로 설정되어있습니다.
+
+<br><br>
+- 로그인 페이지 상세 사진
+<img src="./pictures/로그인 상세.png">
+
+<br>
+
+    worknet의 로그인 정보를 입력하고 제출버튼을 누르면 Worknet 에 등록된 맞춤정보에 따라 검색이 시작되며,
+    데이터는 셀레니움을 통해 읽은 후 지정된 ip와 포트에 등록된 mongoDB에 데이터가 저장됩니다.
+
+
+    
    
