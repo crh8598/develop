@@ -50,6 +50,7 @@ def close_tab(driver):
 def collectJobInfo():
     #with  MongoClient("mongodb://172.17.0.3:27017") as my_client: #for linux
     header = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}
+    #header = {'User-Agent':'header = {'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'}'} #for windows
     company_url='http://www.work.go.kr/empInfo/totBusiInfo/busiSearchDetailPop.do?busino='
     url = '''\
     https://www.work.go.kr/empInfo/empInfoSrch/list/dtlEmpSrchList.do?careerTo=&keywordJobCd=&occupation=&rot2WorkYn=&templateInfo=&payGbn=&\
@@ -62,7 +63,8 @@ def collectJobInfo():
     isEmptyHeader=&depth2SelCode=&_csrf=dd0e5b2f-27ad-42c0-8a64-925e7876ed19&keywordBusiNm=N&preferentialGbn=all&rot3WorkYn=&pfMatterPreferential=&\
     regDateEndt=&staAreaLineInfo1=11000&staAreaLineInfo2=1&pageIndex={}&termContractMmcnt=&careerFrom=&laborHrShortYn=#viewSPL\
     '''.replace('        ','')
-    d_path = '../web_config/driver/chromedriver_linux'
+    #d_path = '../web_config/driver/chromedriver_linux' # for linux
+    d_path = 'C:/크롤러/driver/chromedriver86.exe' #for windows
     print("start reading!")
 
 
@@ -73,7 +75,7 @@ def collectJobInfo():
         
         # worknet 로그인 및 새창 닫기
         driver.get(url='https://www.work.go.kr/seekWantedMain.do')
-        login('whrnrgusdlek','dhfl108!',driver)        
+        login('xxxxxxx','xxxxxx!',driver)        
      
         close_tab(driver)
         # 상세 검색 첫페이지로 이동 
