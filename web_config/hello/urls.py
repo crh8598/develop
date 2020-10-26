@@ -23,5 +23,5 @@ urlpatterns = [
     path('view/', views.view, name='view'),
     path('template/', views.temp, name='temp'),
     path('list/',views.listFromMongoDB, name='list'),
-    path('hello/',helloview.hello, name='hello_home')
+  #  path('hello/',helloview.hello, name='hello_home')
 ]
