@@ -26,7 +26,7 @@ def job_list(request):
         id = request.POST.get('id')
         pw = request.POST.get('pw')
         collectJobInfo(d_path,id,pw)
-    with  MongoClient("mongodb://172.17.0.3:27017") as my_client:
+    with  MongoClient("mongodb://127.0.0.1:27017") as my_client:
         data = dict()
         job_info = list(my_client.my_db.job_info.find({}))
     paginator = Paginator(job_info,10)
@@ -139,6 +139,7 @@ def collectJobInfo(d_path,id_1,pw_1):
             lists = table.find_elements_by_css_selector("tr")
             for td in lists :
                 #새창으로 이동하기 위한 링크클릭
+                
                 info_link = td.find_element_by_css_selector('td:nth-child(3) > div > a')
                 info_link.click()
 
