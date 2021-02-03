@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
 
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
     path('view/', views.view, name='view'),
     path('template/', views.temp, name='temp'),
     path('list/',views.listFromMongoDB, name='list'),
